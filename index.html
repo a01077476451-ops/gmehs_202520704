@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>김현국 - 포트폴리오</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 기본 스타일 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 프로필 카드 */
+    .profile-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #00c6ff;
+      margin-bottom: 15px;
+      transition: transform 0.4s;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.08);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    /* 섹션 */
+    .section {
+      margin: 50px 0;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-left: 6px solid #00c6ff;
+      padding-left: 12px;
+    }
+
+    /* 스킬 */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+    }
+
+    /* 프로젝트 카드 */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #00c6ff;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: #eee;
+      line-height: 1.4;
+    }
+
+    /* 수상 경력 타임라인 */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .year {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #00c6ff;
+      min-width: 60px;
+    }
+
+    .event {
+      background: rgba(255,255,255,0.15);
+      padding: 15px 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .event h3 {
+      margin-bottom: 5px;
+      color: #00c6ff;
+    }
+
+    .event p {
+      font-size: 0.95rem;
+      color: #eee;
+      margin-bottom: 10px;
+    }
+
+    .timeline-img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      border: 2px solid #00c6ff;
+      object-fit: cover;
+    }
+
+    /* 반응형 */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .section h2 { font-size: 1.5rem; }
+      .timeline-item { flex-direction: column; }
+      .year { min-width: auto; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 프로필 -->
+    <div class="profile-card">
+      <img src="myphoto.jpg" alt="프로필 사진" class="profile-img">
+      <h1>김현국</h1>
+      <p class="subtitle">구미전자공고 재학 · 전기·전자 & 소프트웨어 개발에 열정을 가진 학생</p>
+      <div class="skills">
+        <span class="skill">C</span>
+        <span class="skill">C++</span>
+        <span class="skill">Arduino Mega 2560</span>
+        <span class="skill">산업용 로봇</span>
+        <span class="skill">Python</span>
+        <span class="skill">Atmega128a</span>
+        <span class="skill">PLC</span>
+        <span class="skill">CAD</span>
+      </div>
+    </div>
+
+    <!-- 포트폴리오 섹션 -->
+    <div class="section">
+      <h2>포트폴리오</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>C 언어 프로젝트</h3>
+          <p>마이크로컨트롤러와 임베디드 시스템(Arduino Mega 2560) 개발을 위한 C 언어 기반 프로그램 구현 경험.</p>
+        </div>
+        <div class="project-card">
+          <h3>C++ 프로젝트</h3>
+          <p>객체지향 설계와 로봇 제어 프로그램 개발을 위한 C++ 기반 프로젝트 수행.</p>
+        </div>
+        <div class="project-card">
+          <h3>Python 프로젝트</h3>
+          <p>데이터 처리, 알고리즘 구현, 시뮬레이션 등 Python을 활용한 다양한 개발 경험.</p>
+        </div>
+        <div class="project-card">
+          <h3>ATmega128a 프로젝트</h3>
+          <p>AVR 마이크로컨트롤러(ATmega)를 활용한 센서 제어 및 BZ, UART 통신 제어 프로젝트 수행.</p>
+        </div>
+        <div class="project-card">
+          <h3>산업용 로봇 전공심화 동아리</h3>
+          <p>6축 다관절 산업용 로봇 및 PLC 로봇 제어, gentry robot 및 index table 제어 경험.</p>
+        </div>
+        <div class="project-card">
+          <h3>시스템 반도체 소프트웨어반</h3>
+          <p>반도체 8대 공정 이론 및 반도체 공정 장비 연수 수료 경험.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수상 경력 & 이력 섹션 -->
+    <div class="section" id="awards">
+      <h2>수상 경력 & 이력</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="year">2024</span>
+          <div class="event">
+            <h3>국제로봇콘테스트 인공지능로봇챌린지 동메달</h3>
+            <p>4족 보행 로봇 프로젝트로 동메달 수상</p>
+            <img src="award_2024_robot.jpg" alt="수상 사진" class="timeline-img">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2024</span>
+          <div class="event">
+            <h3>교내 전공능력경진대회 금상</h3>
+            <p>전자 태양광 발전 응용 회로 프로젝트 금상 수상</p>
+            <img src="award_2024_circuit.jpg" alt="수상 사진" class="timeline-img">
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2023</span>
+          <div class="event">
+            <h3>국제 로봇 콘테스트 참가 및 동메달</h3>
+            <p>교외 행사 인공지능로봇챌린지 동메달</p>
+            <img src="award_2023_event.jpg" alt="참가 사진" class="timeline-img">
+          </div>
+        </div>
+        <!-- 추가 항목은 timeline-item 블록을 복제해 넣으시면 됩니다 -->
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
