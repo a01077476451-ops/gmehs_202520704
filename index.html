@@ -100,38 +100,53 @@
     .timeline {
       position: relative;
       margin: 20px 0;
-      padding-left: 30px;
+      padding: 0;
     }
     .timeline::before {
       content: "";
       position: absolute;
-      left: 15px;
+      left: 50%;
+      transform: translateX(-50%);
       top: 0;
       bottom: 0;
       width: 4px;
       background: #00c6ff;
       border-radius: 2px;
+      z-index: 1;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 40px;
+      width: 50%;
+      padding: 20px 40px;
+      box-sizing: border-box;
     }
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -3px;
-      top: 5px;
+      top: 20px;
       width: 14px; height: 14px;
       background: #00c6ff;
       border-radius: 50%;
       box-shadow: 0 0 10px #00c6ff;
+      z-index: 2;
     }
-    .year {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #00c6ff;
-      margin-bottom: 10px;
+    /* 홀수: 왼쪽, 짝수: 오른쪽 */
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
     }
+    .timeline-item:nth-child(odd)::before {
+      right: -7px;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-item:nth-child(even)::before {
+      left: -7px;
+    }
+
+    /* 이벤트 카드 스타일 */
     .event {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -139,6 +154,8 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.3);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 1;
     }
     .event:hover {
       transform: translateY(-5px);
@@ -171,11 +188,20 @@
     .contact a:hover { color: #fff; }
 
     /* 반응형 */
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .section h2 { font-size: 1.5rem; }
-      .timeline { padding-left: 20px; }
-      .timeline-item::before { left: -5px; }
+    @media (max-width: 800px) {
+      .timeline-item {
+        width: 100%;
+        padding: 20px 20px;
+      }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+      }
+      .timeline-item::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   </style>
 </head>
@@ -236,8 +262,8 @@
     <div class="timeline">
 
       <div class="timeline-item">
-        <span class="year">2025.08</span>
         <div class="event">
+          <span class="year">2025.08</span>
           <h3>교외 오케스트라 연주회 대회 금상</h3>
           <p>제22회 춘천전국관악경진대회 금상 수상</p>
           <img src="마이스터윈드오케스트라.jpg" alt="수상 사진" class="timeline-img">
@@ -245,8 +271,8 @@
       </div>
 
       <div class="timeline-item">
-        <span class="year">2025.07</span>
         <div class="event">
+          <span class="year">2025.07</span>
           <h3>프로그래밍 자격증 취득</h3>
           <p>Cos-Pro 1급 Python 자격증 취득</p>
           <img src="코스프로.png" alt="수상 사진" class="timeline-img">
@@ -254,8 +280,8 @@
       </div>
 
       <div class="timeline-item">
-        <span class="year">2024.11</span>
         <div class="event">
+          <span class="year">2024.11</span>
           <h3>교내 전공능력경진대회 금상</h3>
           <p>전자 태양광 발전 응용 회로 프로젝트 금상 수상</p>
           <img src="전자프로젝트사진.jpg" alt="수상 사진" class="timeline-img">
@@ -263,8 +289,8 @@
       </div>
 
       <div class="timeline-item">
-        <span class="year">2024.10</span>
         <div class="event">
+          <span class="year">2024.10</span>
           <h3>교외 로봇콘테스트 대회 동메달 수상</h3>
           <p>2024 국제로봇콘테스트 인공지능로봇챌린지 동메달 수상</p>
           <img src="robot.jpg" alt="수상 사진" class="timeline-img">
@@ -272,8 +298,8 @@
       </div>
 
       <div class="timeline-item">
-        <span class="year">2024.05</span>
         <div class="event">
+          <span class="year">2024.05</span>
           <h3>코드업 문제 풀이 700개 달성</h3>
           <p>
             계정 링크: 
