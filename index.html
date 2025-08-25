@@ -11,18 +11,12 @@
       font-family: "Noto Sans KR", sans-serif;
     }
     body {
-      background: 
-        url("data:image/svg+xml;utf8,
-          <svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'>
-            <rect width='80' height='80' fill='none'/>
-            <circle cx='20' cy='20' r='4' fill='rgba(255,255,255,0.15)'/>
-            <circle cx='60' cy='20' r='4' fill='rgba(255,255,255,0.15)'/>
-            <circle cx='20' cy='60' r='4' fill='rgba(255,255,255,0.15)'/>
-            <circle cx='60' cy='60' r='4' fill='rgba(255,255,255,0.15)'/>
-          </svg>
-        ") repeat,
+      background-color: #1e3c72;
+      background-image: 
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
         linear-gradient(135deg, #1e3c72, #2a5298);
-      background-size: 80px 80px, auto;
+      background-size: auto, auto, auto;
       color: #fff;
       min-height: 100vh;
       padding: 40px 20px;
