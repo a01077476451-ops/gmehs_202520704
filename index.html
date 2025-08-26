@@ -1,169 +1,325 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>김현국 - 포트폴리오</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-/* 기본 스타일 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Noto Sans KR", sans-serif;
-}
+  <meta charset="UTF-8">
+  <title>김현국 - 포트폴리오</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 기본 스타일 */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-body {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: #fff;
-  min-height: 100vh;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    /* 프로필 카드 */
+    .profile-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .profile-img {
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #00c6ff;
+      margin-bottom: 15px;
+      transition: transform 0.4s;
+    }
+    .profile-img:hover { transform: scale(1.08); }
+    h1 {
+      font-size: 2.5rem; margin-bottom: 10px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      font-size: 1.1rem; color: #ddd; margin-bottom: 20px;
+    }
 
-/* 컨테이너 */
-.container {
-  max-width: 1000px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
+    /* 섹션 */
+    .section { margin: 50px 0; }
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-left: 6px solid #00c6ff;
+      padding-left: 12px;
+    }
 
-/* 헤더 */
-header {
-  text-align: center;
-}
-header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-}
-header p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
+    /* 스킬 */
+    .skills {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    .skill {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      padding: 10px 15px; border-radius: 20px;
+      font-size: 0.95rem; font-weight: bold; color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .skill:hover { transform: translateY(-5px); }
 
-/* 카드 공통 */
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
+    /* 프로젝트 카드 */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px; padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+    .project-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: #00c6ff; }
+    .project-card p { font-size: 0.95rem; color: #eee; line-height: 1.4; }
 
-/* 섹션 제목 */
-h2 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
-  border-bottom: 2px solid rgba(255,255,255,0.3);
-  display: inline-block;
-  padding-bottom: 5px;
-}
+    /* 수상 경력 타임라인 */
+    .timeline {
+      position: relative;
+      margin: 20px 0;
+      padding: 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #00c6ff;
+      border-radius: 2px;
+      z-index: 1;
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px 40px;
+      box-sizing: border-box;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 14px; height: 14px;
+      background: #00c6ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00c6ff;
+      z-index: 2;
+    }
+    /* 홀수: 왼쪽, 짝수: 오른쪽 */
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item:nth-child(odd)::before {
+      right: -7px;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-item:nth-child(even)::before {
+      left: -7px;
+    }
 
-/* 타임라인 */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.timeline-item {
-  position: relative;
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-}
-.timeline-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-.timeline-item span {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  display: block;
-  margin-bottom: 8px;
-}
-.timeline-item p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
+    /* 이벤트 카드 스타일 */
+    .event {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    .event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+    .event h3 { margin-bottom: 8px; color: #00c6ff; }
+    .event p { font-size: 0.95rem; color: #eee; margin-bottom: 10px; }
+    .timeline-img {
+      width: 100%; max-width: 300px;
+      border-radius: 10px;
+      border: 2px solid #00c6ff;
+      margin-top: 10px;
+    }
 
-/* 스킬 */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.skill {
-  background: rgba(255,255,255,0.15);
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: rgba(255,255,255,0.1);
+      padding: 30px; border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .contact h2 {
+      border-left: none;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #00c6ff;
+    }
+    .contact p { font-size: 1.1rem; margin: 10px 0; }
+    .contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
+    .contact a:hover { color: #fff; }
 
-/* 반응형 */
-@media (min-width: 768px) {
-  header h1 {
-    font-size: 2.6rem;
-  }
-  .timeline {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .timeline-item {
-    flex: 1 1 calc(50% - 20px);
-  }
-  .skills {
-    justify-content: flex-start;
-  }
-}
-</style>
+    /* 반응형 */
+    @media (max-width: 800px) {
+      .timeline-item {
+        width: 100%;
+        padding: 20px 20px;
+      }
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+      }
+      .timeline-item::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>김현국</h1>
-      <p>전기·전자 및 소프트웨어 개발에 관심 있는 개발자</p>
-    </header>
+<div class="container">
 
-    <!-- 타임라인 -->
-    <section class="card">
-      <h2>타임라인</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>2024 국제로봇콘테스트</h3>
-          <span>인공지능로봇챌린지 동메달</span>
-          <p>인공지능 로봇 분야에서 팀 프로젝트로 도전하여 성과를 달성.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>교내 전공능력경진대회</h3>
-          <span>금상</span>
-          <p>전자 태양광 발전 응용 회로 프로젝트로 금상을 수상.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>코드업</h3>
-          <span>700문제 해결</span>
-          <p>꾸준한 문제 풀이를 통해 알고리즘 및 프로그래밍 역량 강화.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 스킬 -->
-    <section class="card">
-      <h2>skill</h2>
-      <div class="skills">
-        <div class="skill">C</div>
-        <div class="skill">Python</div>
-        <div class="skill">AVR</div>
-        <div class="skill">Arduino</div>
-        <div class="skill">Pygame</div>
-        <div class="skill">HTML/CSS</div>
-        <div class="skill">로봇 제어</div>
-        <div class="skill">임베디드 시스템</div>
-      </div>
-    </section>
+  <!-- 프로필 -->
+  <div class="profile-card">
+    <img src="myphoto.jpg" alt="프로필 사진" class="profile-img">
+    <h1>김현국</h1>
+    <p class="subtitle">구미전자공고 재학 · 전기·전자 & 소프트웨어 개발에 열정을 가진 학생</p>
+    <div class="skills">
+      <span class="skill">C</span>
+      <span class="skill">C++</span>
+      <span class="skill">Arduino Mega 2560</span>
+      <span class="skill">산업용 로봇</span>
+      <span class="skill">Python</span>
+      <span class="skill">Atmega128a</span>
+      <span class="skill">PLC</span>
+      <span class="skill">CAD</span>
+    </div>
   </div>
+
+  <!-- 포트폴리오 섹션 -->
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>C 언어 프로그래밍</h3>
+        <p>마이크로컨트롤러와 임베디드 시스템(Arduino Mega 2560) 개발을 위한 C 언어 기반 프로그램 구현 경험.</p>
+      </div>
+      <div class="project-card">
+        <h3>C++ 프로그래밍</h3>
+        <p>객체지향 설계와 로봇 제어 프로그램 개발을 위한 C++ 기반 프로젝트 수행.</p>
+      </div>
+      <div class="project-card">
+        <h3>Python 프로그래밍</h3>
+        <p>데이터 처리, 알고리즘 구현, 시뮬레이션 등 Python을 활용한 다양한 개발 경험.</p>
+      </div>
+      <div class="project-card">
+        <h3>ATmega128a</h3>
+        <p>AVR 마이크로컨트롤러(ATmega)를 활용한 센서 제어 및 BZ, UART 통신 제어 프로젝트 수행.</p>
+      </div>
+      <div class="project-card">
+        <h3>산업용 로봇 전공심화 동아리</h3>
+        <p>6축 다관절 산업용 로봇 및 PLC 로봇 제어, gentry robot 및 index table 제어 경험.</p>
+      </div>
+      <div class="project-card">
+        <h3>시스템 반도체 소프트웨어반</h3>
+        <p>반도체 8대 공정 이론 및 반도체 공정 장비 연수 수료 경험.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수상 경력 & 이력 섹션 -->
+  <div class="section" id="awards">
+    <h2>Award & History</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2025.08</span>
+          <h3>교외 오케스트라 연주회 대회 금상</h3>
+          <p>제22회 춘천전국관악경진대회 금상 수상</p>
+          <img src="마이스터윈드오케스트라.jpg" alt="수상 사진" class="timeline-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2025.07</span>
+          <h3>프로그래밍 자격증 취득</h3>
+          <p>Cos-Pro 1급 Python 자격증 취득</p>
+          <img src="코스프로.png" alt="수상 사진" class="timeline-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2024.11</span>
+          <h3>교내 전공능력경진대회 금상</h3>
+          <p>전자 태양광 발전 응용 회로 프로젝트 금상 수상</p>
+          <img src="전자프로젝트사진.jpg" alt="수상 사진" class="timeline-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2024.10</span>
+          <h3>교외 로봇콘테스트 대회 동메달 수상</h3>
+          <p>2024 국제로봇콘테스트 인공지능로봇챌린지 동메달 수상</p>
+          <img src="robot.jpg" alt="수상 사진" class="timeline-img">
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2024.05</span>
+          <h3>코드업 문제 풀이 700개 달성</h3>
+          <p>
+            계정 링크: 
+            <a href="https://www.codeup.kr/userinfo.php?user=g2410704" target="_blank">
+              https://www.codeup.kr/userinfo.php?user=g2410704
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contact 섹션 -->
+  <div class="section contact" id="contact">
+    <h2>Contact</h2>
+    <p>📞 전화번호: <a href="tel:01076343016">010-7634-3016</a></p>
+    <p>📧 이메일: <a href="mailto:jairus03032008@gmail.com">jairus03032008@gmail.com</a></p>
+  </div>
+
+</div>
 </body>
 </html>
