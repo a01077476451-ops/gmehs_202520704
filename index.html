@@ -68,37 +68,6 @@
       padding-left: 12px;
     }
 
-    /* About Me 강조 */
-    #about {
-      background: linear-gradient(135deg, rgba(0,198,255,0.15), rgba(0,114,255,0.15));
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      backdrop-filter: blur(12px);
-      text-align: center;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    #about:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    }
-    #about h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #00c6ff;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      border-left: none; /* 기존 left border 제거 */
-    }
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #f0f0f0;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
     /* 스킬 */
     .skills {
       display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
@@ -131,6 +100,62 @@
     }
     .project-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: #00c6ff; }
     .project-card p { font-size: 0.95rem; color: #eee; line-height: 1.4; }
+
+    /* 자기소개 (About Me) */
+    #about {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      padding: 70px 30px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: "";
+      position: absolute;
+      top: -40%; left: -40%;
+      width: 180%; height: 180%;
+      background: conic-gradient(from 0deg, rgba(138,43,226,0.15) 0%, transparent 30%, transparent 70%, rgba(0,191,255,0.15) 100%);
+      animation: spin 18s linear infinite;
+      z-index: 0;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    #about h2 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #00e5ff;
+      text-shadow: 0 0 12px #00e5ff, 0 0 24px #7f5af0;
+      animation: glow 3s ease-in-out infinite alternate;
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e5ff, 0 0 20px #7f5af0; }
+      to   { text-shadow: 0 0 20px #00e5ff, 0 0 35px #7f5af0; }
+    }
+    #about p {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 400;
+      color: #e0e0e0;
+      position: relative;
+      z-index: 1;
+    }
+    #about p strong {
+      color: #7f5af0;
+      font-weight: 700;
+      text-shadow: 0 0 10px #7f5af0, 0 0 20px #00e5ff;
+    }
 
     /* 수상 경력 타임라인 */
     .timeline {
@@ -166,7 +191,6 @@
       box-shadow: 0 0 10px #00c6ff;
       z-index: 2;
     }
-    
     .timeline-item:nth-child(odd) {
       left: 0;
       text-align: right;
@@ -181,7 +205,6 @@
     .timeline-item:nth-child(even)::before {
       left: -7px;
     }
-
     .event {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -289,18 +312,18 @@
       </div>
     </div>
   </div>
-
+  
   <!-- 자기소개 섹션 -->
   <div class="section" id="about">
     <h2>About Me</h2>
     <p>
-      저는 구미전자공고에 재학 중이며 전기·전자와 소프트웨어 개발에 열정을 가지고 있습니다. 
+      저는 구미전자공고에 재학 중이며 <strong>전기·전자와 소프트웨어 개발</strong>에 열정을 가지고 있습니다. 
       문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며, 
-      로봇 제어와 임베디드 시스템 개발을 통해 꾸준히 실력을 키우고 있습니다. 
+      <strong>로봇 제어와 임베디드 시스템</strong> 개발을 통해 꾸준히 실력을 키우고 있습니다. 
       새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다.
     </p>
   </div>
-  
+
   <!-- 수상 경력 & 이력 섹션 -->
   <div class="section" id="awards">
     <h2>Award & History</h2>
@@ -402,4 +425,7 @@
 </div>
 </body>
 </html>
+
+
+
 
