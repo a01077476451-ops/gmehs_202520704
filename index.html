@@ -135,7 +135,7 @@
       box-shadow: 0 0 10px #00c6ff;
       z-index: 2;
     }
-    /* 홀수: 왼쪽, 짝수: 오른쪽 */
+    
     .timeline-item:nth-child(odd) {
       left: 0;
       text-align: right;
@@ -151,7 +151,6 @@
       left: -7px;
     }
 
-    /* 이벤트 카드 스타일 */
     .event {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -192,7 +191,6 @@
     .contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
     .contact a:hover { color: #fff; }
 
-    /* 반응형 */
     @media (max-width: 800px) {
       .timeline-item {
         width: 100%;
@@ -292,6 +290,15 @@
           <img src="코스프로.png" alt="수상 사진" class="timeline-img">
         </div>
       </div>
+
+      <div class="timeline-item">
+        <div class="event">
+          <span class="year">2025.04</span>
+          <h3>25년도 지방기능경기대회 입상</h3>
+          <p>산업용로봇 부문 장려상 수상</p>
+          <img src="지방기능경기대회.JPG" alt="수상 사진" class="timeline-img">
+        </div>
+      </div>
       
       <div class="timeline-item">
         <div class="event">
@@ -353,3 +360,4 @@
 </div>
 </body>
 </html>
+
