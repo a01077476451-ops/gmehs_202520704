@@ -68,6 +68,37 @@
       padding-left: 12px;
     }
 
+    /* About Me 강조 */
+    #about {
+      background: linear-gradient(135deg, rgba(0,198,255,0.15), rgba(0,114,255,0.15));
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    #about:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    #about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00c6ff;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-left: none; /* 기존 left border 제거 */
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #f0f0f0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
     /* 스킬 */
     .skills {
       display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
@@ -228,6 +259,17 @@
     </div>
   </div>
 
+  <!-- 자기소개 섹션 -->
+  <div class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      저는 구미전자공고에 재학 중이며 전기·전자와 소프트웨어 개발에 열정을 가지고 있습니다. 
+      문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며, 
+      로봇 제어와 임베디드 시스템 개발을 통해 꾸준히 실력을 키우고 있습니다. 
+      새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다.
+    </p>
+  </div>
+
   <!-- 포트폴리오 섹션 -->
   <div class="section">
     <h2>Experience</h2>
@@ -259,17 +301,6 @@
     </div>
   </div>
   
-  <-- 자기소개 섹션 -->
-  <div class="section" id="about">
-    <h2>About Me</h2>
-    <p>
-      저는 구미전자공고에 재학 중이며 전기·전자와 소프트웨어 개발에 열정을 가지고 있습니다. 
-      문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며, 
-      로봇 제어와 임베디드 시스템 개발을 통해 꾸준히 실력을 키우고 있습니다. 
-      새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다.
-    </p>
-  </div>
-
   <!-- 수상 경력 & 이력 섹션 -->
   <div class="section" id="awards">
     <h2>Award & History</h2>
@@ -371,6 +402,3 @@
 </div>
 </body>
 </html>
-
-
-
