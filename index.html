@@ -110,34 +110,45 @@ p.subtitle {
   padding-left: 12px;
 }
 
-/* 프로젝트 카드 */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+/* 프로필 카드 */
+.profile-card {
+  background: linear-gradient(135deg, #2c3e70, #3a5fa0);
+  position: relative;
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  animation: fadeIn 1.2s ease;
+  margin-bottom: 60px;
+  color: #fff;
+  overflow: hidden;
 }
-.project-card {
-  background: rgba(255,255,255,0.15);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-  backdrop-filter: blur(8px);
-  transition: transform 0.3s, box-shadow 0.3s;
+
+.profile-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(127, 90, 240, 0.15) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(0, 229, 255, 0.15) 100%
+  );
+  animation: spin 20s linear infinite;
+  z-index: 0;
 }
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+
+.profile-card h1,
+.profile-card p,
+.profile-card .skills {
+  position: relative;
+  z-index: 1;
 }
-.project-card h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #00c6ff;
-}
-.project-card p {
-  font-size: 0.95rem;
-  color: #eee;
-  line-height: 1.4;
-}
+
 
 /* 자기소개 (About Me) */
 #about {
@@ -432,6 +443,7 @@ p.subtitle {
 </div>
 </body>
 </html>
+
 
 
 
