@@ -1,225 +1,273 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>김현국 - 포트폴리오</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* 기본 스타일 */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: "Noto Sans KR", sans-serif;
-    }
-    body {
-      background-color: #1e3c72;
-      background-image: 
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
-        repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
-        linear-gradient(135deg, #1e3c72, #2a5298);
-      background-size: auto, auto, auto;
-      color: #fff;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-    .container { max-width: 1000px; margin: 0 auto; }
+<meta charset="UTF-8">
+<title>김현국 - 포트폴리오</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
 
-    /* 프로필 카드 */
-    .profile-card {
-      background-color: #f9f9f9;
-      background-image: radial-gradient(rgba(127, 90, 240, 0.2) 1px, transparent 1px);
-      background-size: 20px 20px;
-      background-blend-mode: overlay;
-      border-radius: 20px;
-      padding: 50px 40px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      animation: fadeIn 1.2s ease;
-      margin-bottom: 60px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .profile-img {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #7f5af0;
-      margin-bottom: 20px;
-      transition: transform 0.4s;
-    }
-    .profile-img:hover { transform: scale(1.08); }
-    h1 { font-size: 2.5rem; margin-bottom: 12px; color: #222; }
-    p.subtitle { font-size: 1.1rem; color: #555; margin-bottom: 25px; }
+body {
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
 
-    /* 스킬 */
-    .skills {
-      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-    }
-    .skill {
-      background: linear-gradient(135deg, #7f5af0, #00e5ff);
-      padding: 10px 15px; border-radius: 20px;
-      font-size: 0.95rem; font-weight: bold; color: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-    .skill:hover { transform: translateY(-5px); }
+  /* 🔹 사선 스트라이프 패턴 + 다크 그라데이션 */
+  background-color: #0d0d0d;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 20px
+    ),
+    linear-gradient(135deg, #1e3c72, #2a5298);
+  background-size: auto, auto;
+}
 
-    /* 섹션 */
-    .section { margin: 60px 0; }
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-left: 6px solid #00c6ff;
-      padding-left: 12px;
-    }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    /* 프로젝트 카드 */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: rgba(255,255,255,0.15);
-      border-radius: 15px; padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-    }
-    .project-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: #00c6ff; }
-    .project-card p { font-size: 0.95rem; color: #eee; line-height: 1.4; }
+/* 프로필 카드 */
+.profile-card {
+  background-color: #f9f9f9;
+  background-image: radial-gradient(rgba(127, 90, 240, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1.2s ease;
+  margin-bottom: 60px;
+}
 
-    /* 자기소개 (About Me) */
-    #about {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      padding: 70px 30px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    #about::before {
-      content: "";
-      position: absolute;
-      top: -40%; left: -40%;
-      width: 180%; height: 180%;
-      background: conic-gradient(from 0deg, rgba(138,43,226,0.15) 0%, transparent 30%, transparent 70%, rgba(0,191,255,0.15) 100%);
-      animation: spin 18s linear infinite;
-      z-index: 0;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    #about h2 {
-      font-size: 2.8rem;
-      margin-bottom: 25px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #00e5ff;
-      text-shadow: 0 0 12px #00e5ff, 0 0 24px #7f5af0;
-      animation: glow 3s ease-in-out infinite alternate;
-      position: relative;
-      z-index: 1;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #00e5ff, 0 0 20px #7f5af0; }
-      to   { text-shadow: 0 0 20px #00e5ff, 0 0 35px #7f5af0; }
-    }
-    #about p {
-      font-size: 1.2rem;
-      line-height: 1.9;
-      max-width: 800px;
-      margin: 0 auto;
-      font-weight: 400;
-      color: #e0e0e0;
-      position: relative;
-      z-index: 1;
-    }
-    #about p strong { color: #7f5af0; font-weight: 700; text-shadow: 0 0 10px #7f5af0, 0 0 20px #00e5ff; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* 수상 경력 타임라인 */
-    .timeline { position: relative; margin: 20px 0; padding: 0; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 0; bottom: 0;
-      width: 4px;
-      background: #00c6ff;
-      border-radius: 2px;
-      z-index: 1;
-    }
-    .timeline-item { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      top: 20px;
-      width: 14px; height: 14px;
-      background: #00c6ff;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #00c6ff;
-      z-index: 2;
-    }
-    .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-    .timeline-item:nth-child(odd)::before { right: -7px; }
-    .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-    .timeline-item:nth-child(even)::before { left: -7px; }
-    .event {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 15px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative; z-index: 1;
-    }
-    .event:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
-    .event h3 { margin-bottom: 8px; color: #00c6ff; }
-    .event p { font-size: 0.95rem; color: #eee; margin-bottom: 10px; }
-    .timeline-img { width: 100%; max-width: 300px; border-radius: 10px; border: 2px solid #00c6ff; margin-top: 10px; }
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #7f5af0;
+  margin-bottom: 20px;
+  transition: transform 0.4s;
+}
+.profile-img:hover { transform: scale(1.08); }
 
-    /* Contact */
-    .contact {
-      text-align: center;
-      background: rgba(255,255,255,0.1);
-      padding: 30px; border-radius: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-    }
-    .contact h2 { border-left: none; font-size: 1.8rem; margin-bottom: 20px; color: #00c6ff; }
-    .contact p { font-size: 1.1rem; margin: 10px 0; }
-    .contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
-    .contact a:hover { color: #fff; }
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #222;
+}
+p.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
 
-    @media (max-width: 800px) {
-      .timeline-item {
-        width: 100%;
-        padding: 20px 20px;
-      }
-      .timeline-item:nth-child(odd),
-      .timeline-item:nth-child(even) {
-        left: 0;
-        text-align: left;
-      }
-      .timeline-item::before {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-  </style>
+/* 스킬 */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.skill {
+  background: linear-gradient(135deg, #7f5af0, #00e5ff);
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+.skill:hover { transform: translateY(-5px); }
+
+/* 섹션 */
+.section { margin: 60px 0; }
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-left: 6px solid #00c6ff;
+  padding-left: 12px;
+}
+
+/* 프로젝트 카드 */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: rgba(255,255,255,0.15);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+.project-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #00c6ff;
+}
+.project-card p {
+  font-size: 0.95rem;
+  color: #eee;
+  line-height: 1.4;
+}
+
+/* 자기소개 (About Me) */
+#about {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 70px 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+#about::before {
+  content: "";
+  position: absolute;
+  top: -40%; left: -40%;
+  width: 180%; height: 180%;
+  background: conic-gradient(from 0deg, rgba(138,43,226,0.15) 0%, transparent 30%, transparent 70%, rgba(0,191,255,0.15) 100%);
+  animation: spin 18s linear infinite;
+  z-index: 0;
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+#about h2 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00e5ff;
+  text-shadow: 0 0 12px #00e5ff, 0 0 24px #7f5af0;
+  animation: glow 3s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 1;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00e5ff, 0 0 20px #7f5af0; }
+  to { text-shadow: 0 0 20px #00e5ff, 0 0 35px #7f5af0; }
+}
+#about p {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
+  color: #e0e0e0;
+  position: relative;
+  z-index: 1;
+}
+#about p strong {
+  color: #7f5af0;
+  font-weight: 700;
+  text-shadow: 0 0 10px #7f5af0, 0 0 20px #00e5ff;
+}
+
+/* 수상 경력 타임라인 */
+.timeline { position: relative; margin: 20px 0; padding: 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: 0; bottom: 0;
+  width: 4px; background: #00c6ff;
+  border-radius: 2px; z-index: 1;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 14px; height: 14px;
+  background: #00c6ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00c6ff;
+  z-index: 2;
+}
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(odd)::before { right: -7px; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+.timeline-item:nth-child(even)::before { left: -7px; }
+
+.event {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.event:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
+.event h3 { margin-bottom: 8px; color: #00c6ff; }
+.event p { font-size: 0.95rem; color: #eee; margin-bottom: 10px; }
+.timeline-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  border: 2px solid #00c6ff;
+  margin-top: 10px;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+.contact h2 {
+  border-left: none;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00c6ff;
+}
+.contact p { font-size: 1.1rem; margin: 10px 0; }
+.contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
+.contact a:hover { color: #fff; }
+
+/* 반응형 */
+@media (max-width: 800px) {
+  .timeline-item { width: 100%; padding: 20px 20px; }
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) { left: 0; text-align: left; }
+  .timeline-item::before { left: 50%; transform: translateX(-50%); }
+}
+</style>
 </head>
 <body>
 <div class="container">
-
   <!-- 프로필 -->
   <div class="profile-card">
     <img src="myphoto.jpg" alt="프로필 사진" class="profile-img">
@@ -267,14 +315,14 @@
       </div>
     </div>
   </div>
-  
+
   <!-- 자기소개 섹션 -->
   <div class="section" id="about">
     <h2>About Me</h2>
     <p>
-      저는 구미전자공고에 재학 중이며 <strong>전기·전자와 소프트웨어 개발</strong>에 열정을 가지고 있습니다. 
-      문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며, 
-      <strong>로봇 제어와 임베디드 시스템</strong> 개발을 통해 꾸준히 실력을 키우고 있습니다. 
+      저는 구미전자공고에 재학 중이며 <strong>전기·전자와 소프트웨어 개발</strong>에 열정을 가지고 있습니다.
+      문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며,
+      <strong>로봇 제어와 임베디드 시스템</strong> 개발을 통해 꾸준히 실력을 키우고 있습니다.
       새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다.
     </p>
   </div>
@@ -283,8 +331,7 @@
   <div class="section" id="awards">
     <h2>Award & History</h2>
     <div class="timeline">
-
-      <div class="timeline-item">
+<div class="timeline-item">
         <div class="event">
           <span class="year">2025.08</span>
           <h3>교외 오케스트라 연주회 대회 금상</h3>
@@ -376,13 +423,6 @@
     <p>📞 전화번호: <a href="tel:01076343016">010-7634-3016</a></p>
     <p>📧 이메일: <a href="mailto:jairus03032008@gmail.com">jairus03032008@gmail.com</a></p>
   </div>
-
 </div>
 </body>
 </html>
-
-
-
-
-
-
