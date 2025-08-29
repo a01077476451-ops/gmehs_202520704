@@ -12,26 +12,16 @@
   box-sizing: border-box;
   font-family: "Noto Sans KR", sans-serif;
 }
-
 body {
+  background-color: #1e3c72;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+    linear-gradient(135deg, #1e3c72, #2a5298);
+  background-size: auto, auto, auto;
   color: #fff;
   min-height: 100vh;
   padding: 40px 20px;
-
-  /* 🔹 사선 스트라이프 패턴 + 다크 그라데이션 */
-  background-color: #0d0d0d;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
-      transparent 2px,
-      transparent 20px
-    ),
-    linear-gradient(135deg, #1e3c72, #2a5298);
-  background-size: auto, auto;
 }
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -40,8 +30,14 @@ body {
 /* 프로필 카드 */
 .profile-card {
   background-color: #f9f9f9;
-  background-image: radial-gradient(rgba(127, 90, 240, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
+  /* 메인 포인트 컬러 사선 패턴 */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(127, 90, 240, 0.15) 0px,
+    rgba(127, 90, 240, 0.15) 20px,
+    transparent 20px,
+    transparent 40px
+  );
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
@@ -49,12 +45,10 @@ body {
   animation: fadeIn 1.2s ease;
   margin-bottom: 60px;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .profile-img {
   width: 160px;
   height: 160px;
@@ -65,7 +59,6 @@ body {
   transition: transform 0.4s;
 }
 .profile-img:hover { transform: scale(1.08); }
-
 h1 {
   font-size: 2.5rem;
   margin-bottom: 12px;
@@ -148,13 +141,18 @@ p.subtitle {
 #about::before {
   content: "";
   position: absolute;
-  top: -40%; left: -40%;
-  width: 180%; height: 180%;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
   background: conic-gradient(from 0deg, rgba(138,43,226,0.15) 0%, transparent 30%, transparent 70%, rgba(0,191,255,0.15) 100%);
   animation: spin 18s linear infinite;
   z-index: 0;
 }
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 #about h2 {
   font-size: 2.8rem;
   margin-bottom: 25px;
@@ -188,14 +186,22 @@ p.subtitle {
 }
 
 /* 수상 경력 타임라인 */
-.timeline { position: relative; margin: 20px 0; padding: 0; }
+.timeline {
+  position: relative;
+  margin: 20px 0;
+  padding: 0;
+}
 .timeline::before {
   content: "";
   position: absolute;
-  left: 50%; transform: translateX(-50%);
-  top: 0; bottom: 0;
-  width: 4px; background: #00c6ff;
-  border-radius: 2px; z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #00c6ff;
+  border-radius: 2px;
+  z-index: 1;
 }
 .timeline-item {
   position: relative;
@@ -207,7 +213,8 @@ p.subtitle {
   content: "";
   position: absolute;
   top: 20px;
-  width: 14px; height: 14px;
+  width: 14px;
+  height: 14px;
   background: #00c6ff;
   border-radius: 50%;
   box-shadow: 0 0 10px #00c6ff;
@@ -217,7 +224,6 @@ p.subtitle {
 .timeline-item:nth-child(odd)::before { right: -7px; }
 .timeline-item:nth-child(even) { left: 50%; text-align: left; }
 .timeline-item:nth-child(even)::before { left: -7px; }
-
 .event {
   background: rgba(255,255,255,0.1);
   padding: 20px;
@@ -228,7 +234,10 @@ p.subtitle {
   position: relative;
   z-index: 1;
 }
-.event:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
+.event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
 .event h3 { margin-bottom: 8px; color: #00c6ff; }
 .event p { font-size: 0.95rem; color: #eee; margin-bottom: 10px; }
 .timeline-img {
@@ -257,11 +266,13 @@ p.subtitle {
 .contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
 .contact a:hover { color: #fff; }
 
-/* 반응형 */
 @media (max-width: 800px) {
   .timeline-item { width: 100%; padding: 20px 20px; }
   .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) { left: 0; text-align: left; }
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
+  }
   .timeline-item::before { left: 50%; transform: translateX(-50%); }
 }
 </style>
@@ -319,19 +330,14 @@ p.subtitle {
   <!-- 자기소개 섹션 -->
   <div class="section" id="about">
     <h2>About Me</h2>
-    <p>
-      저는 구미전자공고에 재학 중이며 <strong>전기·전자와 소프트웨어 개발</strong>에 열정을 가지고 있습니다.
-      문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며,
-      <strong>로봇 제어와 임베디드 시스템</strong> 개발을 통해 꾸준히 실력을 키우고 있습니다.
-      새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다.
-    </p>
+    <p> 저는 구미전자공고에 재학 중이며 <strong>전기·전자와 소프트웨어 개발</strong>에 열정을 가지고 있습니다. 문제 해결을 위해 직접 회로를 설계하고 프로그램을 구현하는 과정을 즐기며, <strong>로봇 제어와 임베디드 시스템</strong> 개발을 통해 꾸준히 실력을 키우고 있습니다. 새로운 기술을 배우고 실제 프로젝트에 적용하는 것을 좋아합니다. </p>
   </div>
 
   <!-- 수상 경력 & 이력 섹션 -->
   <div class="section" id="awards">
     <h2>Award & History</h2>
     <div class="timeline">
-<div class="timeline-item">
+      <div class="timeline-item">
         <div class="event">
           <span class="year">2025.08</span>
           <h3>교외 오케스트라 연주회 대회 금상</h3>
@@ -339,7 +345,6 @@ p.subtitle {
           <img src="마이스터윈드오케스트라.jpg" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="event">
           <span class="year">2025.08</span>
@@ -348,7 +353,6 @@ p.subtitle {
           <img src="구미대연수.jpg" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="event">
           <span class="year">2025.07</span>
@@ -357,7 +361,6 @@ p.subtitle {
           <img src="코스프로.png" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="event">
           <span class="year">2025.04</span>
@@ -366,7 +369,6 @@ p.subtitle {
           <img src="지방기능경기대회.jpg" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-      
       <div class="timeline-item">
         <div class="event">
           <span class="year">2024.11</span>
@@ -375,7 +377,6 @@ p.subtitle {
           <img src="시상식.JPG" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-      
       <div class="timeline-item">
         <div class="event">
           <span class="year">2024.11</span>
@@ -384,7 +385,6 @@ p.subtitle {
           <img src="전자프로젝트사진.jpg" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="event">
           <span class="year">2024.10</span>
@@ -393,17 +393,11 @@ p.subtitle {
           <img src="robot.jpg" alt="수상 사진" class="timeline-img">
         </div>
       </div>
-
       <div class="timeline-item">
         <div class="event">
           <span class="year">2024.05</span>
           <h3>코드업 문제 풀이 700개 달성</h3>
-          <p>
-            계정 링크: 
-            <a href="https://www.codeup.kr/userinfo.php?user=g2410704" target="_blank">
-              https://www.codeup.kr/userinfo.php?user=g2410704
-            </a>
-          </p>
+          <p> 계정 링크: <a href="https://www.codeup.kr/userinfo.php?user=g2410704" target="_blank"> https://www.codeup.kr/userinfo.php?user=g2410704 </a> </p>
           <img src="코드업.png" alt="수상 사진" class="timeline-img">
         </div>
       </div>
@@ -426,3 +420,4 @@ p.subtitle {
 </div>
 </body>
 </html>
+
