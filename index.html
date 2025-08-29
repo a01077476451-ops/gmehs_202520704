@@ -72,12 +72,22 @@ body {
 }
 
 /* 텍스트와 스킬은 패턴 위에 표시 */
-.profile-card h1,
-.profile-card p,
-.profile-card .skills {
-  position: relative;
-  z-index: 1;
+/* 텍스트 선명하게 */
+.profile-card h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
+
+.profile-card p.subtitle {
+  color: #f0f8ff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+.profile-card .skill {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
 
 
 .profile-card h1,
@@ -464,4 +474,5 @@ p.subtitle {
 </div>
 </body>
 </html>
+
 
