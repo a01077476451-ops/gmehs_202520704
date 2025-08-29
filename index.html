@@ -29,9 +29,9 @@ body {
 
 /* 프로필 카드 */
 .profile-card {
-  background-color: #f9f9f9;
+  background-color: #1a1b2e; /* 어두운 남보라 계열 베이스 */
 
-  /* 더 강조된 메인 포인트 패턴 */
+  /* 강조 패턴 */
   background-image: repeating-linear-gradient(
     45deg,
     rgba(127, 90, 240, 0.25) 0px,
@@ -45,10 +45,17 @@ body {
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   animation: fadeIn 1.2s ease;
   margin-bottom: 60px;
+  color: #f1f1f1; /* 텍스트 색상 밝게 */
 }
+
+.profile-card h1,
+.profile-card p {
+  color: #ffffff;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -424,5 +431,6 @@ p.subtitle {
 </div>
 </body>
 </html>
+
 
 
