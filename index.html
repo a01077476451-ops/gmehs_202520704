@@ -4,30 +4,26 @@
 <meta charset="UTF-8">
 <title>김현국 - 포트폴리오</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+
 <style>
+
 /* 기본 스타일 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 body {
-  color: #fff;
+  color: #0600AB;
   min-height: 100vh;
   padding: 40px 20px;
-  background-color: #0d0d0d;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.05) 0px,
-      rgba(255, 255, 255, 0.05) 2px,
-      transparent 2px,
-      transparent 20px
-    ),
-    linear-gradient(135deg, #1e3c72, #2a5298);
-  background-size: auto, auto;
+  background: linear-gradient(80deg, #0033ff, #977dff);
 }
 
 .container {
@@ -37,7 +33,7 @@ body {
 
 /* 프로필 카드 */
 .profile-card {
-  background: linear-gradient(145deg, #4a90e2, #7ab8f5);
+  background: linear-gradient(145deg, #ffccf2, #0033ff);
   border-radius: 20px;
   padding: 50px 40px;
   text-align: center;
@@ -69,18 +65,18 @@ body {
 }
 
 .profile-card h1 {
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  color: #fcf6f5;
+  text-shadow: 0 5px 8px rgba(0,0,0,0.5);
 }
 
 .profile-card p.subtitle {
-  color: #f0f8ff;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  color: #fcf6f5;
+  text-shadow: 0 5px 6px rgba(0,0,0,0.4);
 }
 
 .profile-card .skill {
-  color: #fff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  color: #fcf6f5;
+  text-shadow: 0 5px 4px rgba(0,0,0,0.3);
 }
 
 .profile-card h1,
@@ -100,7 +96,7 @@ body {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #7f5af0;
+  border: 5px solid #977dff;
   margin-bottom: 20px;
   transition: transform 0.4s;
 }
@@ -113,7 +109,7 @@ h1 {
 }
 p.subtitle {
   font-size: 1.1rem;
-  color: #555;
+  color: #ffffff;
   margin-bottom: 25px;
 }
 
@@ -125,12 +121,12 @@ p.subtitle {
   justify-content: center;
 }
 .skill {
-  background: linear-gradient(135deg, #7f5af0, #00e5ff);
+  background: linear-gradient(135deg, #0033ff, #977dff);
   padding: 10px 15px;
   border-radius: 20px;
   font-size: 0.95rem;
   font-weight: bold;
-  color: #fff;
+  color: #ff0000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   transition: transform 0.3s;
 }
@@ -141,7 +137,8 @@ p.subtitle {
 .section h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  border-left: 6px solid #00c6ff;
+  border-left: 6px solid #eee7ec;
+  color: #ffffff;
   padding-left: 12px;
 }
 
@@ -154,13 +151,13 @@ p.subtitle {
 
 /* 프로젝트 카드 - 배경 진하게 + 그림자 강화 */
 .project-card {
-  background: rgba(20, 40, 80, 0.95);
+  background: linear-gradient(80deg, #0033ff, #977dff);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.8);
   backdrop-filter: blur(6px);
   transition: transform 0.3s, box-shadow 0.3s;
-  color: #f0f8ff;
+  color: #ff0000;
   text-align: center;
 }
 .project-card img {
@@ -177,22 +174,22 @@ p.subtitle {
 .project-card h3 { 
   margin-bottom: 10px; 
   font-size: 1.2rem; 
-  color: #00e5ff;
+  color: #ffffff;
 }
 .project-card p { 
   font-size: 0.95rem; 
-  color: #e0e0e0; 
+  color: #f0f0f0; 
   line-height: 1.4; 
 }
 
 /* 자기소개 (About Me) */
 #about {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(135deg, #00a9f2, #00a9f2);
   padding: 70px 30px;
   border-radius: 25px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.6);
   text-align: center;
-  color: #fff;
+  color: #ffccf2;
   position: relative;
   overflow: hidden;
 }
@@ -201,7 +198,7 @@ p.subtitle {
   position: absolute;
   top: -40%; left: -40%;
   width: 180%; height: 180%;
-  background: conic-gradient(from 0deg, rgba(138,43,226,0.15) 0%, transparent 30%, transparent 70%, rgba(0,191,255,0.15) 100%);
+  background: conic-gradient(from 0deg, #787cfe 0%, transparent 30%, transparent 70%, #48bed9 100%);
   animation: spin 18s linear infinite;
   z-index: 0;
 }
@@ -212,15 +209,15 @@ p.subtitle {
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #00e5ff;
-  text-shadow: 0 0 12px #00e5ff, 0 0 24px #7f5af0;
+  color: #000000;
+  text-shadow: 0 0 12px #1d3d35, 0 0 24px #2c2542;
   animation: glow 3s ease-in-out infinite alternate;
   position: relative;
   z-index: 1;
 }
 @keyframes glow {
-  from { text-shadow: 0 0 10px #00e5ff, 0 0 20px #7f5af0; }
-  to { text-shadow: 0 0 20px #00e5ff, 0 0 35px #7f5af0; }
+  from { text-shadow: 0 0 10px #00eaff, 0 0 20px #524b66; }
+  to { text-shadow: 0 0 20px #6b52aa, 0 0 35px #3b3838; }
 }
 #about p {
   font-size: 1.2rem;
@@ -228,14 +225,14 @@ p.subtitle {
   max-width: 800px;
   margin: 0 auto;
   font-weight: 400;
-  color: #e0e0e0;
+  color: #302929;
   position: relative;
   z-index: 1;
 }
 #about p strong {
-  color: #7f5af0;
+  color: #00033f;
   font-weight: 700;
-  text-shadow: 0 0 10px #7f5af0, 0 0 20px #00e5ff;
+  text-shadow: 0 0 10px #3700ff, 0 0 20px #00e5ff;
 }
 
 /* 수상 경력 타임라인 */
@@ -245,7 +242,7 @@ p.subtitle {
   position: absolute;
   left: 50%; transform: translateX(-50%);
   top: 0; bottom: 0;
-  width: 4px; background: #00c6ff;
+  width: 4px; background: #ffccf2;
   border-radius: 2px; z-index: 1;
 }
 .timeline-item {
@@ -259,9 +256,9 @@ p.subtitle {
   position: absolute;
   top: 20px;
   width: 14px; height: 14px;
-  background: #00c6ff;
+  background: #ffccf2;
   border-radius: 50%;
-  box-shadow: 0 0 10px #00c6ff;
+  box-shadow: 0 0 10px #f2e6ee;
   z-index: 2;
 }
 .timeline-item:nth-child(odd) { left: 0; text-align: right; }
@@ -271,7 +268,7 @@ p.subtitle {
 
 /* 타임라인 이벤트 카드 - 밝은 버전 */
 .event {
-  background: rgba(60, 120, 200, 0.95); /* 기존보다 밝은 블루 */
+  background: linear-gradient(80deg, #ffccf2, #977dff); /* 기존보다 밝은 블루 */
   padding: 20px;
   border-radius: 15px;
   backdrop-filter: blur(6px);
@@ -279,7 +276,7 @@ p.subtitle {
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   z-index: 1;
-  color: #f0f8ff;
+  color: #00003d;
   text-align: center;
 }
 .event img {
@@ -295,11 +292,11 @@ p.subtitle {
 }
 .event h3 { 
   margin-bottom: 8px; 
-  color: #ffd700; /* 제목 색상도 밝게 */
+  color: #00003d;
 }
 .event p { 
   font-size: 0.95rem; 
-  color: #f0f0f0; 
+  color: #00003d; 
   margin-bottom: 10px; 
 }
 
@@ -307,7 +304,7 @@ p.subtitle {
 /* Contact */
 .contact {
   text-align: center;
-  background: rgba(255,255,255,0.1);
+  background: #0600af;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.3);
@@ -316,10 +313,10 @@ p.subtitle {
   border-left: none;
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #00c6ff;
+  color: #ffccf2;
 }
-.contact p { font-size: 1.1rem; margin: 10px 0; }
-.contact a { color: #00c6ff; text-decoration: none; font-weight: bold; }
+.contact p { color: #f2e6ee; font-size: 1.1rem; margin: 10px 0; }
+.contact a { color: #f2e6ee; text-decoration: none; font-weight: bold; }
 .contact a:hover { color: #fff; }
 
 /* 반응형 */
@@ -550,15 +547,9 @@ p.subtitle {
   <!-- Contact 섹션 -->
   <div class="section contact" id="contact">
     <h2>Contact</h2>
-    <p>📞 전화번호: <a href="tel:01076343016">010-7634-3016</a></p>
-    <p>📧 이메일: <a href="mailto:jairus03032008@gmail.com">jairus03032008@gmail.com</a></p>
+    <p>전화번호: <a href="tel:01076343016">010-7634-3016</a></p>
+    <p>이메일: <a href="mailto:jairus03032008@gmail.com">jairus03032008@gmail.com</a></p>
   </div>
 </div>
 </body>
 </html>
-
-
-
-
-
-
